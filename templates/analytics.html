@@ -1,0 +1,23 @@
+{% extends 'layout.html' %} {% block content %}
+
+<h2>Analytics Dashboard</h2>
+
+<div class="row mt-4">
+
+    <div class="col-md-6">
+        <div class="card p-4 text-center shadow">
+            <h4>Total Jobs</h4>
+            <h2 class="text-primary">{{ jobs }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card p-4 text-center shadow">
+            <h4>Total Applications</h4>
+            <h2 class="text-success">{{ apps }}</h2>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

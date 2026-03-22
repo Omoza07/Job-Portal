@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="col-md-5 mx-auto">
+    <h3>Apply for Job</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label class="mb-2">Upload Resume (PDF only)</label>
+        <input class="form-control mb-3" type="file" name="resume" required>
+
+        <button class="btn btn-primary w-100">Submit Application</button>
+    </form>
+</div>
+
+{% endblock %}

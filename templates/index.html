@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} {% block content %}
+
+<h2>Available Jobs</h2>
+
+{% for job in jobs %}
+<div class="card p-3 mb-3 shadow">
+    <h4>{{ job.title }}</h4>
+    <p>{{ job.description }}</p>
+
+    {% if session.get('user') %}
+    <a href="/apply/{{ job.id }}" class="btn btn-primary">Apply</a> {% else %}
+    <a href="/login" class="btn btn-warning">Login to Apply</a> {% endif %}
+</div>
+{% endfor %} {% endblock %}

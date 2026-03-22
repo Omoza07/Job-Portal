@@ -1,0 +1,12 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="col-md-4 mx-auto">
+    <h3>Schedule Interview</h3>
+
+    <form method="POST">
+        <input class="form-control mb-3" type="date" name="date" required>
+        <button class="btn btn-success w-100">Schedule</button>
+    </form>
+</div>
+
+{% endblock %}

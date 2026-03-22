@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block content %}
+
+<h2>Dashboard</h2>
+
+{% if role == "employer" %}
+
+<form method="POST" action="/post_job">
+    <input name="title" placeholder="Job Title">
+    <textarea name="desc"></textarea>
+    <button>Post Job</button>
+</form>
+
+<h3>Your Jobs</h3>
+{% for job in jobs %}
+<p>{{ job.title }}</p>
+{% endfor %}
+
+<h3>Applications</h3>
+{% for app in apps %}
+<div>
+    {{ app.name }} applied for {{ app.title }} <br> Status: {{ app.status }} <br>
+    <p>{{ app.parsed_text[:100] }}...</p>
+    <a href="/schedule/{{ app.id }}">Schedule</a>
+</div>
+{% endfor %} {% else %}
+
+<h3>Jobs</h3>
+{% for job in jobs %}
+<div>
+    <h4>{{ job.title }}</h4>
+
+    {% set applied = false %} {% for app in apps %} {% if app.id == job.id %} {% set applied = true %} {% endif %} {% endfor %} {% if applied %}
+    <button>Applied ✅</button> {% else %}
+    <a href="/apply/{{ job.id }}">Apply</a> {% endif %}
+</div>
+{% endfor %} {% endif %} {% endblock %}
